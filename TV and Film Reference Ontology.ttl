@@ -1,0 +1,335 @@
+@prefix : <http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/> .
+
+<http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film> rdf:type owl:Ontology ;
+                                                                  owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000412
+<http://purl.obolibrary.org/obo/IAO_0000412> rdf:type owl:AnnotationProperty ;
+                                             rdfs:label "imported from"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ontologyDevelopmentNote
+:ontologyDevelopmentNote rdf:type owl:AnnotationProperty ;
+                         rdfs:label "ontology development note"@en ;
+                         rdfs:subPropertyOf rdfs:comment .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty ;
+                                                   rdfs:label "definition source"@en .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty ;
+                                                   rdfs:label "is curated in ontology"@en .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00001833
+<https://www.commoncoreontologies.org/ont00001833> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000056> ,
+                                                                      <http://purl.obolibrary.org/obo/BFO_0000057> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "has agent"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has_agent y iff x is an instance of Process and y is an instance of Agent, such that y is causally active in x."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001845
+<https://www.commoncoreontologies.org/ont00001845> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000183> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "is site of"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is_site_of y iff x is an instance of Site and y is an instance of Process, such that y occurs in x."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001918
+<https://www.commoncoreontologies.org/ont00001918> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000066> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "occurs at"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x occurs_at y iff x is an instance of Process and y is an instance of Site, such that x occurs in y."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmActingPerformance
+:FilmActingPerformance rdf:type owl:Class ;
+                       rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                       rdfs:label "Film Acting Performance"@en ;
+                       <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act in which a Person uses movement, gesture, and intonation to portray a character in a Film."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfStuntDoubling
+:ActOfStuntDoubling rdf:type owl:Class ;
+                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                    rdfs:label "Act of Stunt Doubling"@en ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person  who takes an actor's place during the filming of stunts and dangerous scenes for a movie or TV show."@en ;
+                    <https://www.commoncoreontologies.org/ont00001754> "https://www.merriam-webster.com/dictionary/stunt%20double"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/DirectorRole
+:DirectorRole rdf:type owl:Class ;
+              rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ;
+              rdfs:label "Director Role"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Directing, as prescribed by a contract with a Film or Television Studio, and which is realized both by that Person engaging in such Acts and by Acts of Payment in which they're compensated by a Film or Television Studio for doing so."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmActor
+:FilmActor rdf:type owl:Class ;
+           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+           rdfs:label "Film Actor"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Actor Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmActorRole
+:FilmActorRole rdf:type owl:Class ;
+               rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( :TelevisionActingPerformance
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                             owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                                         owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                         owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                       ]
+                                                                                                                     ) ;
+                                                                                                  rdf:type owl:Class
+                                                                                                ]
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ;
+               rdfs:label "Film Actor Role"@en ;
+               <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in a Film Acting Performance, as prescribed by a contract with a Film Studio, and which is realized both by that Person engaging in some such Performance and by an Act of Payment in which they're compensated by a Studio for doing so."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmShoot
+:FilmShoot rdf:type owl:Class ;
+           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+           :ontologyDevelopmentNote "Needs definition and axioms."@en ;
+           rdfs:label "Film Shoot"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmingLocation
+:FilmingLocation rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000487>
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://www.commoncoreontologies.org/ont00001845> ;
+                                                              owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                   owl:unionOf ( :FilmShoot
+                                                                                                 :TelevisionShoot
+                                                                                               )
+                                                                                 ]
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000487> ;
+                 rdfs:label "Filming Location"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "A Geospatial Location at which a Film or Television Shoot occurs."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/StuntDoubleRole
+:StuntDoubleRole rdf:type owl:Class ;
+                 rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                   owl:someValuesFrom [ owl:intersectionOf ( :ActOfStuntDoubling
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                               owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                                           owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                           owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                         ]
+                                                                                                                       ) ;
+                                                                                                    rdf:type owl:Class
+                                                                                                  ]
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
+                                                      ]
+                                 ] ;
+                 rdfs:label "Stunt Double Role"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Stunt Doubling, as prescribed by a contract with a Film or Television Studio, and which is realized both by that Person engaging in some such Act and by an Act of Payment in which they're compensated by a Studio for doing so."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionActingPerformance
+:TelevisionActingPerformance rdf:type owl:Class ;
+                             rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                             rdfs:label "Television Acting Performance"@en ;
+                             <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act in which a Person uses movement, gesture, and intonation to portray a character on a Television Show."@en ;
+                             <https://www.commoncoreontologies.org/ont00001754> "https://www.britannica.com/art/acting"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionActor
+:TelevisionActor rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                              owl:someValuesFrom :TelevisionActorRole
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+                 rdfs:label "Television Actor"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Television Actor Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionActorRole
+:TelevisionActorRole rdf:type owl:Class ;
+                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                       owl:someValuesFrom [ owl:intersectionOf ( :TelevisionActingPerformance
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                                   owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                               owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                               owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                             ]
+                                                                                                                           ) ;
+                                                                                                        rdf:type owl:Class
+                                                                                                      ]
+                                                                                 ]
+                                                                               ) ;
+                                                            rdf:type owl:Class
+                                                          ]
+                                     ] ;
+                     rdfs:label "Television Actor Role"@en ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in a Television Acting Performance, as prescribed by a contract with a Television Studio, and which is realized both by that Person engaging in some such Performance and by an Act of Payment in which they're compensated by a Studio for doing so."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionDirector
+:TelevisionDirector rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                 owl:someValuesFrom :DirectorRole
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+                    rdfs:label "Director"@en ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Director Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionShoot
+:TelevisionShoot rdf:type owl:Class ;
+                 rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                 :ontologyDevelopmentNote "Needs definition and axioms."@en ;
+                 rdfs:label "Television Shoot"@en .
+
+
+###  https://www.commoncoreontologies.org/ont00000005
+<https://www.commoncoreontologies.org/ont00000005> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "Act"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Process in which at least one Agent plays a causative role."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000228
+<https://www.commoncoreontologies.org/ont00000228> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000005> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "Planned Act"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Intentional Act"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act in which at least one Agent plays a causative role and which is prescribed by some Directive Information Content Entity held by at least one of the Agents."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000472
+<https://www.commoncoreontologies.org/ont00000472> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000029> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "Geospatial Region"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Site that is at or near the surface of the Earth."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000487
+<https://www.commoncoreontologies.org/ont00000487> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000472> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "Geospatial Location"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Geospatial Region that is at which an Entity or Event is located."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000506
+<https://www.commoncoreontologies.org/ont00000506> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "Contractor Role"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Role that inheres in an Agent or Group of Agents by virtue of that Agent or Group of Agents entering into a Contract to provide materials or labor to perform a service or complete a task."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "A Contractor Role differs from an Occupation Role in at least two ways. First, the Contract that binds the two parties together is not one of employment. Second, a Contractor Role is occupationally neutral in that an Agent can be contracted to perform any number of Occupational Roles."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000551
+<https://www.commoncoreontologies.org/ont00000551> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000030> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "Organism"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Object that is an Animal or Plant."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000562
+<https://www.commoncoreontologies.org/ont00000562> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000551> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "Animal"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Organism that is multicellular, eukaryotic, heterotrophic, and capable of motility for part of its life."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Animal&oldid=1063873549"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001262
+<https://www.commoncoreontologies.org/ont00001262> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000562> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "Person"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Human"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Animal that is a member of the species Homo sapiens."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Human&oldid=1063145185"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001379
+<https://www.commoncoreontologies.org/ont00001379> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000017> ;
+                                                   <http://purl.obolibrary.org/obo/IAO_0000412> "https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" ;
+                                                   rdfs:label "Agent Capability"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Realizable Entity that inheres in a Material Entity in virtue of that Material Entity's capacity to realize it in some Planned Act."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "Schlosser, Markus, \"Agency\", The Stanford Encyclopedia of Philosophy (Winter 2019 Edition), Edward N. Zalta (ed.), available at: https://plato.stanford.edu/archives/win2019/entries/agency/"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
