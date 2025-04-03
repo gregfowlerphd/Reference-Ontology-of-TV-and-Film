@@ -70,30 +70,44 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmActingPerformance
-:FilmActingPerformance rdf:type owl:Class ;
-                       rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                       rdfs:label "Film Acting Performance"@en ;
-                       <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act in which a Person uses movement, gesture, and intonation to portray a character in a Film."@en .
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfTelevisionDirecting
+:ActOfTelevisionDirecting rdf:type owl:Class ;
+                          rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                          :ontologyDevelopmentNote "Needs definition and axioms."@en ;
+                          rdfs:label "Act of Television Directing"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmDirecting
+:ActOfFilmDirecting rdf:type owl:Class ;
+                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                    rdfs:label "Act of Film Directing"@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfStuntDoubling
 :ActOfStuntDoubling rdf:type owl:Class ;
                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
                     rdfs:label "Act of Stunt Doubling"@en ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person  who takes an actor's place during the filming of stunts and dangerous scenes for a movie or TV show."@en ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person taking an actor's place during the filming of stunts and dangerous scenes for a movie or TV show."@en ;
                     <https://www.commoncoreontologies.org/ont00001754> "https://www.merriam-webster.com/dictionary/stunt%20double"@en .
 
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/DirectorRole
-:DirectorRole rdf:type owl:Class ;
-              rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ;
-              rdfs:label "Director Role"@en ;
-              <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Directing, as prescribed by a contract with a Film or Television Studio, and which is realized both by that Person engaging in such Acts and by Acts of Payment in which they're compensated by a Film or Television Studio for doing so."@en .
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmActingPerformance
+:FilmActingPerformance rdf:type owl:Class ;
+                       rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                       rdfs:label "Film Acting Performance"@en ;
+                       <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act in which a Person uses movement, gesture, and intonation to portray a character in a Film."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmActor
 :FilmActor rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                        owl:someValuesFrom :FilmActorRole
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
            rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
            rdfs:label "Film Actor"@en ;
            <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Actor Role."@en .
@@ -124,6 +138,46 @@
                <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in a Film Acting Performance, as prescribed by a contract with a Film Studio, and which is realized both by that Person engaging in some such Performance and by an Act of Payment in which they're compensated by a Studio for doing so."@en .
 
 
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmDirector
+:FilmDirector rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                           owl:someValuesFrom :FilmDirectorRole
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+              rdfs:label "Film Director"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Director Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmDirectorRole
+:FilmDirectorRole rdf:type owl:Class ;
+                  rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( :ActOfFilmDirecting
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                                owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                                            owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                            owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                          ]
+                                                                                                                        ) ;
+                                                                                                     rdf:type owl:Class
+                                                                                                   ]
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
+                  rdfs:label "Film Director Role"@en ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Film Directing, as prescribed by a contract with a Film Studio, and which is realized both by that Person engaging in such Acts and by Acts of Payment in which they're compensated by a Film Studio for doing so."@en .
+
+
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmShoot
 :FilmShoot rdf:type owl:Class ;
            rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
@@ -148,6 +202,50 @@
                  rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000487> ;
                  rdfs:label "Filming Location"@en ;
                  <http://www.w3.org/2004/02/skos/core#definition> "A Geospatial Location at which a Film or Television Shoot occurs."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/Gaffer
+:Gaffer rdf:type owl:Class ;
+        owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                     owl:someValuesFrom :GafferRole
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] ;
+        rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+        rdfs:label "Gaffer"@en ;
+        <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Gaffer Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/GafferAct
+:GafferAct rdf:type owl:Class ;
+           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+           :ontologyDevelopmentNote "A Planned Act consisting of a Person serving as the chief electrician on a Film or Television Episode."@en ;
+           rdfs:label "Gaffer Act"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/GafferRole
+:GafferRole rdf:type owl:Class ;
+            rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ;
+            rdfs:label "Gaffer Role"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in a Gaffer Act, as prescribed by a contract between that Person and a Film or Television Studio, and which is realized both by such Acts and by Acts of Payment in which they're compensated by a Film or Television Studio for engaging in them."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/StuntDouble
+:StuntDouble rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                          owl:someValuesFrom :StuntDoubleRole
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+             rdfs:label "Stunt Double"@en ;
+             <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Stunt Double Role."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/StuntDoubleRole
@@ -223,19 +321,29 @@
                      <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in a Television Acting Performance, as prescribed by a contract with a Television Studio, and which is realized both by that Person engaging in some such Performance and by an Act of Payment in which they're compensated by a Studio for doing so."@en .
 
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionDirector
-:TelevisionDirector rdf:type owl:Class ;
-                    owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
-                                                                 owl:someValuesFrom :DirectorRole
-                                                               ]
-                                                             ) ;
-                                          rdf:type owl:Class
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionDirectorRole
+:TelevisionDirectorRole rdf:type owl:Class ;
+                        rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                          owl:someValuesFrom [ owl:intersectionOf ( :ActOfTelevisionDirecting
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                                      owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                                  owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                                ]
+                                                                                                                              ) ;
+                                                                                                           rdf:type owl:Class
+                                                                                                         ]
+                                                                                    ]
+                                                                                  ) ;
+                                                               rdf:type owl:Class
+                                                             ]
                                         ] ;
-                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
-                    rdfs:label "Director"@en ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Director Role."@en .
+                        rdfs:label "Television Director Role"@en ;
+                        <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Television Directing, as prescribed by a contract with a Television Studio, and which is realized both by that Person engaging in such Acts and by Acts of Payment in which they're compensated by a Television Studio for doing so."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionShoot
