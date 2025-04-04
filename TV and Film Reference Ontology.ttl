@@ -70,13 +70,6 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfTelevisionDirecting
-:ActOfTelevisionDirecting rdf:type owl:Class ;
-                          rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                          :ontologyDevelopmentNote "Needs definition and axioms."@en ;
-                          rdfs:label "Act of Television Directing"@en .
-
-
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmDirecting
 :ActOfFilmDirecting rdf:type owl:Class ;
                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
@@ -89,6 +82,13 @@
                     rdfs:label "Act of Stunt Doubling"@en ;
                     <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person taking an actor's place during the filming of stunts and dangerous scenes for a movie or TV show."@en ;
                     <https://www.commoncoreontologies.org/ont00001754> "https://www.merriam-webster.com/dictionary/stunt%20double"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfTelevisionDirecting
+:ActOfTelevisionDirecting rdf:type owl:Class ;
+                          rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                          :ontologyDevelopmentNote "Needs definition and axioms."@en ;
+                          rdfs:label "Act of Television Directing"@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmActingPerformance
@@ -319,6 +319,21 @@
                                      ] ;
                      rdfs:label "Television Actor Role"@en ;
                      <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in a Television Acting Performance, as prescribed by a contract with a Television Studio, and which is realized both by that Person engaging in some such Performance and by an Act of Payment in which they're compensated by a Studio for doing so."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionDirector
+:TelevisionDirector rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                 owl:someValuesFrom :TelevisionDirectorRole
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+                    rdfs:label "Television Director"@en ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Television Director Role."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionDirectorRole
