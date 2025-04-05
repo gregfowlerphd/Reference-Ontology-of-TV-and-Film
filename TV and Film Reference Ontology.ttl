@@ -70,37 +70,6 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfTalentAgenting
-:ActOfTalentAgenting rdf:type owl:Class ;
-                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                     rdfs:label "Act of Talent Agenting"@en .
-
-
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#TalentAgentRole
-:TalentAgentRole rdf:type owl:Class ;
-                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                       owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
-                                       owl:someValuesFrom [ owl:intersectionOf ( :ActOfTalentAgenting
-                                                                                 [ rdf:type owl:Restriction ;
-                                                                                   owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
-                                                                                   owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
-                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                               owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
-                                                                                                                               owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
-                                                                                                                             ]
-                                                                                                                           ) ;
-                                                                                                        rdf:type owl:Class
-                                                                                                      ]
-                                                                                 ]
-                                                                               ) ;
-                                                            rdf:type owl:Class
-                                                          ]
-                                     ] ;
-                 rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ;
-                 rdfs:label "Talent Agent Role"@en ;
-                 <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Talent Agenting, as prescribed by a contract with a Film or Television Actor, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by an Actor for engaging in them."@en .
-
-
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmDirecting
 :ActOfFilmDirecting rdf:type owl:Class ;
                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
@@ -113,6 +82,13 @@
                     rdfs:label "Act of Stunt Doubling"@en ;
                     <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person taking an actor's place during the filming of stunts and dangerous scenes for a movie or TV show."@en ;
                     <https://www.commoncoreontologies.org/ont00001754> "https://www.merriam-webster.com/dictionary/stunt%20double"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfTalentAgenting
+:ActOfTalentAgenting rdf:type owl:Class ;
+                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                     rdfs:comment "A Planned Act consisting of a Person representing a Film or Television Actor in negotiations with a Film or Television Studio."@en ;
+                     rdfs:label "Act of Talent Agenting"@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfTelevisionDirecting
@@ -317,6 +293,31 @@
              rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
              rdfs:label "Talent Agent"@en ;
              <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Talent Agent Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TalentAgentRole
+:TalentAgentRole rdf:type owl:Class ;
+                 rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                   owl:someValuesFrom [ owl:intersectionOf ( :ActOfTalentAgenting
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                               owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                                           owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                           owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                         ]
+                                                                                                                       ) ;
+                                                                                                    rdf:type owl:Class
+                                                                                                  ]
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
+                                                      ]
+                                 ] ;
+                 rdfs:label "Talent Agent Role"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Talent Agenting, as prescribed by a contract with a Film or Television Actor, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by an Actor for engaging in them."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionActingPerformance
