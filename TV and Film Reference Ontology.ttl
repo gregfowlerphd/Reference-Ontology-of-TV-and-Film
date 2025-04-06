@@ -70,6 +70,45 @@
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfPropMastery
+:ActOfPropMastery rdf:type owl:Class ;
+                  rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                  :ontologyDevelopmentNote "Needs definition and axioms."@en ;
+                  rdfs:label "Act of Prop Mastery"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#PropMaster
+:PropMaster rdf:type owl:Class ;
+            rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+            rdfs:label "Prop Master"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Prop Master Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#PropMasterRole
+:PropMasterRole rdf:type owl:Class ;
+                rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                  owl:someValuesFrom [ owl:intersectionOf ( :ActOfPropMastery
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                              owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                        [ rdf:type owl:Restriction ;
+                                                                                                                          owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                          owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                        ]
+                                                                                                                      ) ;
+                                                                                                   rdf:type owl:Class
+                                                                                                 ]
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ]
+                                ] ;
+                rdfs:label "Prop Master Role"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Prop Mastery, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Film or Television Studio for engaging in them."@en .
+
+
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmDirecting
 :ActOfFilmDirecting rdf:type owl:Class ;
                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
