@@ -70,11 +70,26 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfStoryboarding
-:ActOfStoryboarding rdf:type owl:Class ;
-                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                    rdfs:label "Act of Storyboarding"@en ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of the use of a graphic organizer made up of simple illustrations or images displayed in sequence to pre-visualize a Film or Television Episode."@en .
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#Prop
+:Prop rdf:type owl:Class ;
+      owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000040>
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                   owl:someValuesFrom :PropRole
+                                                 ]
+                                               ) ;
+                            rdf:type owl:Class
+                          ] ;
+      rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000040> ;
+      rdfs:label "Prop"@en ;
+      <http://www.w3.org/2004/02/skos/core#definition> "A Material Entity that bears a Prop Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#PropRole
+:PropRole rdf:type owl:Class ;
+          rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> ;
+          rdfs:label "Prop Role"@en ;
+          <http://www.w3.org/2004/02/skos/core#definition> "A Role that inheres in a Material Entity by virtue of that entity being a moveable inanimate item that is recorded during a Film or Television Shoot."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmDirecting
@@ -88,6 +103,13 @@
                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
                   :ontologyDevelopmentNote "Needs definition and axioms."@en ;
                   rdfs:label "Act of Prop Mastery"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfStoryboarding
+:ActOfStoryboarding rdf:type owl:Class ;
+                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                    rdfs:label "Act of Storyboarding"@en ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of the use of a graphic organizer made up of simple illustrations or images displayed in sequence to pre-visualize a Film or Television Episode."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfStuntDoubling
@@ -256,6 +278,14 @@
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/PropMaster
 :PropMaster rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                         owl:someValuesFrom :PropMasterRole
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
             rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
             rdfs:label "Prop Master"@en ;
             <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Prop Master Role."@en .
