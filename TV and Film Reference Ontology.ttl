@@ -74,40 +74,102 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfStoryboarding
-:ActOfStoryboarding rdf:type owl:Class ;
-                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                    rdfs:label "Act of Storyboarding"@en ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person or Persons previsualizing a Film or Television Sequence using simple illustrations or images."@en ;
-                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/wiki/Storyboard"@en .
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfFilmWriting
+:ActOfFilmWriting rdf:type owl:Class ;
+                  rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                  rdfs:label "Act of Film Writing"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmExtra
+:FilmExtra rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                        owl:someValuesFrom :FilmExtraRole
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+           rdfs:label "Film Extra"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Extra Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmExtraAct
+:FilmExtraAct rdf:type owl:Class ;
+              rdfs:subClassOf :FilmActingPerformance ;
+              rdfs:label "Film Extra Act"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "A Film Acting Performance consisting of a Person using movement and gesture to portray a non-speaking character in a Film."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmExtraRole
+:FilmExtraRole rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                     owl:someValuesFrom [ owl:intersectionOf ( :FilmExtraAct
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                                 owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001262>
+                                                                               ]
+                                                                             ) ;
+                                                          rdf:type owl:Class
+                                                        ]
+                                   ] ;
+               rdfs:subClassOf :FilmActorRole ;
+               rdfs:label "Film Extra Role"@en ;
+               <http://www.w3.org/2004/02/skos/core#definition> "A Film Actor Role that inheres in a Person by virtue of that Person engaging in a Film Extra Act, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Film Studio for engaging in them."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmWriter
+:FilmWriter rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                         owl:someValuesFrom :FilmWriterRole
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+            rdfs:label "Film Writer"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Writer Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmWriterRole
+:FilmWriterRole rdf:type owl:Class ;
+                rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ;
+                rdfs:label "Film Writer Role"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Film Writing, as prescribed by a contract with a Film Studio, and which is realized both by that Person engaging in such Acts and by Acts of Payment in which they're compensated by a Film Studio for doing so."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfEditing
 :ActOfEditing rdf:type owl:Class ;
               rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
               rdfs:label "Act of Editing"@en ;
-              <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person or Persons selecting, cutting, and putting together Video footage and turning it into a cohesive sequence that tells a story as the Director intended."@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person or Persons selecting, cutting, and putting together Video footage and turning it into a cohesive sequence that tells a story as the director intended."@en ;
               <https://www.commoncoreontologies.org/ont00001754> "https://targetjobs.co.uk/careers-advice/job-descriptions/tvfilm-editor-job-description"@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmDirecting
 :ActOfFilmDirecting rdf:type owl:Class ;
                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                    rdfs:label "Act of Film Directing"@en .
+                    rdfs:label "Act of Film Directing"@en ,
+                               "Needs definition and axioms."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfPropMastery
 :ActOfPropMastery rdf:type owl:Class ;
                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                  :ontologyDevelopmentNote "Needs definition and axioms."@en ;
-                  rdfs:label "Act of Prop Mastery"@en .
+                  rdfs:label "Act of Prop Mastery"@en ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person being responsible for acquiring, organizing, and overseeing the usage of Props for a Film or Television Series."@en ;
+                  <https://www.commoncoreontologies.org/ont00001754> "https://miracalize.com/property-master-film-set/"@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfStoryboarding
 :ActOfStoryboarding rdf:type owl:Class ;
                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
                     rdfs:label "Act of Storyboarding"@en ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of the use of a graphic organizer made up of simple illustrations or images displayed in sequence to pre-visualize a Film or Television Episode."@en .
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of the use of a graphic organizer made up of simple illustrations or images displayed in sequence to pre-visualize a Film or Television Sequence."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfStuntDoubling
