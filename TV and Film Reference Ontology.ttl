@@ -74,72 +74,50 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfFilmWriting
-:ActOfFilmWriting rdf:type owl:Class ;
-                  rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                  rdfs:label "Act of Film Writing"@en .
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfVideoing
+:ActOfVideoing rdf:type owl:Class ;
+               rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+               rdfs:label "Act of Videoing"@en ;
+               <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person using a Video Camera to capture a Shot in a Film or Television Episode."@en .
 
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmExtra
-:FilmExtra rdf:type owl:Class ;
-           owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
-                                                        owl:someValuesFrom :FilmExtraRole
-                                                      ]
-                                                    ) ;
-                                 rdf:type owl:Class
-                               ] ;
-           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
-           rdfs:label "Film Extra"@en ;
-           <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Extra Role."@en .
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#Cameraperson
+:Cameraperson rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                           owl:someValuesFrom :CamerapersonRole
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+              rdfs:comment "A Person who bears a Cameraperson Role."@en .
 
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmExtraAct
-:FilmExtraAct rdf:type owl:Class ;
-              rdfs:subClassOf :FilmActingPerformance ;
-              rdfs:label "Film Extra Act"@en ;
-              <http://www.w3.org/2004/02/skos/core#definition> "A Film Acting Performance consisting of a Person using movement and gesture to portray a non-speaking character in a Film."@en .
-
-
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmExtraRole
-:FilmExtraRole rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
-                                     owl:someValuesFrom [ owl:intersectionOf ( :FilmExtraAct
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
-                                                                                 owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001262>
-                                                                               ]
-                                                                             ) ;
-                                                          rdf:type owl:Class
-                                                        ]
-                                   ] ;
-               rdfs:subClassOf :FilmActorRole ;
-               rdfs:label "Film Extra Role"@en ;
-               <http://www.w3.org/2004/02/skos/core#definition> "A Film Actor Role that inheres in a Person by virtue of that Person engaging in a Film Extra Act, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Film Studio for engaging in them."@en .
-
-
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmWriter
-:FilmWriter rdf:type owl:Class ;
-            owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
-                                                         owl:someValuesFrom :FilmWriterRole
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#CamerapersonRole
+:CamerapersonRole rdf:type owl:Class ;
+                  rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( :ActOfVideoing
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                                owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                                            owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                            owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                          ]
+                                                                                                                        ) ;
+                                                                                                     rdf:type owl:Class
+                                                                                                   ]
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
                                                        ]
-                                                     ) ;
-                                  rdf:type owl:Class
-                                ] ;
-            rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
-            rdfs:label "Film Writer"@en ;
-            <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Writer Role."@en .
-
-
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmWriterRole
-:FilmWriterRole rdf:type owl:Class ;
-                rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ;
-                rdfs:label "Film Writer Role"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Film Writing, as prescribed by a contract with a Film Studio, and which is realized both by that Person engaging in such Acts and by Acts of Payment in which they're compensated by a Film Studio for doing so."@en .
+                                  ] ;
+                  rdfs:label "Cameraperson Role"@en ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Videoing, as prescribed by a contract with a Film or Television Studio, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Film or Television Studio for engaging in them."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfEditing
@@ -155,6 +133,12 @@
                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
                     rdfs:label "Act of Film Directing"@en ,
                                "Needs definition and axioms."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmWriting
+:ActOfFilmWriting rdf:type owl:Class ;
+                  rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                  rdfs:label "Act of Film Writing"@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfPropMastery
@@ -321,11 +305,73 @@
                   <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Film Directing, as prescribed by a contract with a Film Studio, and which is realized both by that Person engaging in such Acts and by Acts of Payment in which they're compensated by a Film Studio for doing so."@en .
 
 
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmExtra
+:FilmExtra rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                        owl:someValuesFrom :FilmExtraRole
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+           rdfs:label "Film Extra"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Extra Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmExtraAct
+:FilmExtraAct rdf:type owl:Class ;
+              rdfs:subClassOf :FilmActingPerformance ;
+              rdfs:label "Film Extra Act"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "A Film Acting Performance consisting of a Person using movement and gesture to portray a non-speaking character in a Film."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmExtraRole
+:FilmExtraRole rdf:type owl:Class ;
+               rdfs:subClassOf :FilmActorRole ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                 owl:someValuesFrom [ owl:intersectionOf ( :FilmExtraAct
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                             owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001262>
+                                                                           ]
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                               ] ;
+               rdfs:label "Film Extra Role"@en ;
+               <http://www.w3.org/2004/02/skos/core#definition> "A Film Actor Role that inheres in a Person by virtue of that Person engaging in a Film Extra Act, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Film Studio for engaging in them."@en .
+
+
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmShoot
 :FilmShoot rdf:type owl:Class ;
            rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
            :ontologyDevelopmentNote "Needs definition and axioms."@en ;
            rdfs:label "Film Shoot"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmWriter
+:FilmWriter rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                         owl:someValuesFrom :FilmWriterRole
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+            rdfs:label "Film Writer"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Writer Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmWriterRole
+:FilmWriterRole rdf:type owl:Class ;
+                rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ;
+                rdfs:label "Film Writer Role"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Film Writing, as prescribed by a contract with a Film Studio, and which is realized both by that Person engaging in such Acts and by Acts of Payment in which they're compensated by a Film Studio for doing so."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmingLocation
@@ -605,6 +651,46 @@
                                         ] ;
                         rdfs:label "Television Director Role"@en ;
                         <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Television Directing, as prescribed by a contract with a Television Studio, and which is realized both by that Person engaging in such Acts and by Acts of Payment in which they're compensated by a Television Studio for doing so."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionExtra
+:TelevisionExtra rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                              owl:someValuesFrom :TelevisionExtraRole
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+                 rdfs:label "Television Extra"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Television Extra Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionExtraAct
+:TelevisionExtraAct rdf:type owl:Class ;
+                    rdfs:subClassOf :TelevisionActingPerformance ;
+                    rdfs:label "Television Extra Act"@en ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Television Acting Performance consisting of a Person using movement and gesture to portray a non-speaking character in a Television Show."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionExtraRole
+:TelevisionExtraRole rdf:type owl:Class ;
+                     rdfs:subClassOf :TelevisionActorRole ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                       owl:someValuesFrom [ owl:intersectionOf ( :TelevisionExtraAct
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                                   owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001262>
+                                                                                 ]
+                                                                               ) ;
+                                                            rdf:type owl:Class
+                                                          ]
+                                     ] ;
+                     rdfs:label "Television Extra Role"@en ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "A Television Actor Role that inheres in a Person by virtue of that Person engaging in a Television Extra Act, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Film Studio for engaging in them."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionShoot
