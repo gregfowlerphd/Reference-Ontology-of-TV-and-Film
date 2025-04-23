@@ -74,61 +74,6 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#ActOfTelevisionProduction
-:ActOfTelevisionProduction rdf:type owl:Class ;
-                           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                           rdfs:label "Act of Television Production"@en ;
-                           <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person being responsible for the practical or financial aspects of making a Television Show."@en ;
-                           <https://www.commoncoreontologies.org/ont00001754> "https://www.oxfordlearnersdictionaries.com/us/definition/american_english/producer#:~:text=%2Fpr%C9%99%CB%88dus%C9%99r%2F,is%20a%20major%20oil%20producer."@en .
-
-
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#FilmProducerRole
-:FilmProducerRole rdf:type owl:Class ;
-                  rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ;
-                  :ontologyDevelopmentNote "Needs definition and axioms."@en ;
-                  rdfs:label "Film Producer Role"@en .
-
-
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#TelevisionProducer
-:TelevisionProducer rdf:type owl:Class ;
-                    owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
-                                                                 owl:someValuesFrom :TelevisionProducerRole
-                                                               ]
-                                                             ) ;
-                                          rdf:type owl:Class
-                                        ] ;
-                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
-                    rdfs:label "Television Producer"@en ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Television Producer Role."@en .
-
-
-###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film#TelevisionProducerRole
-:TelevisionProducerRole rdf:type owl:Class ;
-                        rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
-                                          owl:someValuesFrom [ owl:intersectionOf ( :ActOfTelevisionProduction
-                                                                                    [ rdf:type owl:Restriction ;
-                                                                                      owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
-                                                                                      owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
-                                                                                                                                [ rdf:type owl:Restriction ;
-                                                                                                                                  owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
-                                                                                                                                  owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
-                                                                                                                                ]
-                                                                                                                              ) ;
-                                                                                                           rdf:type owl:Class
-                                                                                                         ]
-                                                                                    ]
-                                                                                  ) ;
-                                                               rdf:type owl:Class
-                                                             ]
-                                        ] ;
-                        rdfs:label "Television Producer Role"@en ;
-                        <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Television Production, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Television Studio for engaging in them."@en .
-
-
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfEditing
 :ActOfEditing rdf:type owl:Class ;
               rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
@@ -140,8 +85,17 @@
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmDirecting
 :ActOfFilmDirecting rdf:type owl:Class ;
                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                    :ontologyDevelopmentNote "Needs definition and axioms."@en ;
-                    rdfs:label "Act of Film Directing"@en .
+                    :ontologyDevelopmentNote "Definition may need revision to remove 'usually' clause."@en ;
+                    rdfs:label "Act of Film Directing"@en ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person supervising the production of a Film, usually with responsibility for action, lighting, music, and rehearsals."@en ;
+                    <https://www.commoncoreontologies.org/ont00001754> "https://www.merriam-webster.com/dictionary/director"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmProduction
+:ActOfFilmProduction rdf:type owl:Class ;
+                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                     rdfs:label "Act of Film Production"@en ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person being responsible for the practical or financial aspects of making a Film."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmWriting
@@ -183,8 +137,18 @@
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfTelevisionDirecting
 :ActOfTelevisionDirecting rdf:type owl:Class ;
                           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                          :ontologyDevelopmentNote "Needs definition and axioms."@en ;
-                          rdfs:label "Act of Television Directing"@en .
+                          :ontologyDevelopmentNote "Definition may need revision to remove 'usually' clause."@en ;
+                          rdfs:label "Act of Television Directing"@en ;
+                          <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person supervising the production of a Television Show, usually with responsibility for action, lighting, music, and rehearsals."@en ;
+                          <https://www.commoncoreontologies.org/ont00001754> "https://www.merriam-webster.com/dictionary/director"@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfTelevisionProduction
+:ActOfTelevisionProduction rdf:type owl:Class ;
+                           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                           rdfs:label "Act of Television Production"@en ;
+                           <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person being responsible for the practical or financial aspects of making a Television Show."@en ;
+                           <https://www.commoncoreontologies.org/ont00001754> "https://www.oxfordlearnersdictionaries.com/us/definition/american_english/producer#:~:text=%2Fpr%C9%99%CB%88dus%C9%99r%2F,is%20a%20major%20oil%20producer."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfVideoing
@@ -398,6 +362,46 @@
                                ] ;
                rdfs:label "Film Extra Role"@en ;
                <http://www.w3.org/2004/02/skos/core#definition> "A Film Actor Role that inheres in a Person by virtue of that Person engaging in a Film Extra Act, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Film Studio for engaging in them."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmProducer
+:FilmProducer rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                           owl:someValuesFrom :FilmProducerRole
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+              rdfs:label "Film Producer"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Film Producer Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmProducerRole
+:FilmProducerRole rdf:type owl:Class ;
+                  rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                    owl:someValuesFrom [ owl:intersectionOf ( :ActOfFilmProduction
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                                owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                                            owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                            owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                          ]
+                                                                                                                        ) ;
+                                                                                                     rdf:type owl:Class
+                                                                                                   ]
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ]
+                                  ] ;
+                  rdfs:label "Film Producer Role"@en ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Film Production, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Film Studio for engaging in them."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/FilmShoot
@@ -746,6 +750,46 @@
                                      ] ;
                      rdfs:label "Television Extra Role"@en ;
                      <http://www.w3.org/2004/02/skos/core#definition> "A Television Actor Role that inheres in a Person by virtue of that Person engaging in a Television Extra Act, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Film Studio for engaging in them."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionProducer
+:TelevisionProducer rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                 owl:someValuesFrom :TelevisionProducerRole
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
+                    rdfs:label "Television Producer"@en ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Person who bears a Television Producer Role."@en .
+
+
+###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionProducerRole
+:TelevisionProducerRole rdf:type owl:Class ;
+                        rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000506> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                                          owl:someValuesFrom [ owl:intersectionOf ( :ActOfTelevisionProduction
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty <https://www.commoncoreontologies.org/ont00001833> ;
+                                                                                      owl:someValuesFrom [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                                                  owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001379>
+                                                                                                                                ]
+                                                                                                                              ) ;
+                                                                                                           rdf:type owl:Class
+                                                                                                         ]
+                                                                                    ]
+                                                                                  ) ;
+                                                               rdf:type owl:Class
+                                                             ]
+                                        ] ;
+                        rdfs:label "Television Producer Role"@en ;
+                        <http://www.w3.org/2004/02/skos/core#definition> "A Contractor Role that inheres in a Person who bears an Agent Capability by virtue of that Person engaging in an Act of Television Production, and which is realized both by such Acts and by Acts of Payment in which that Person is compensated by a Television Studio for engaging in them."@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/TelevisionShoot
