@@ -85,10 +85,9 @@
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmDirecting
 :ActOfFilmDirecting rdf:type owl:Class ;
                     rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                    :ontologyDevelopmentNote "Definition may need revision to remove 'usually' clause."@en ;
                     rdfs:label "Act of Film Directing"@en ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person supervising the production of a Film, usually with responsibility for action, lighting, music, and rehearsals."@en ;
-                    <https://www.commoncoreontologies.org/ont00001754> "https://www.merriam-webster.com/dictionary/director"@en .
+                    <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person person controlling a Film's artistic and dramatic aspects and visualizing the Screenplay (or Script) while guiding Crew Members and Actors in the fulfillment of that vision."@en ;
+                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/wiki/Film_director"@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmProduction
@@ -101,6 +100,7 @@
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfFilmWriting
 :ActOfFilmWriting rdf:type owl:Class ;
                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                  :ontologyDevelopmentNote "Needs definition and axioms."@en ;
                   rdfs:label "Act of Film Writing"@en .
 
 
@@ -137,10 +137,9 @@
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfTelevisionDirecting
 :ActOfTelevisionDirecting rdf:type owl:Class ;
                           rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
-                          :ontologyDevelopmentNote "Definition may need revision to remove 'usually' clause."@en ;
                           rdfs:label "Act of Television Directing"@en ;
-                          <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person supervising the production of a Television Show, usually with responsibility for action, lighting, music, and rehearsals."@en ;
-                          <https://www.commoncoreontologies.org/ont00001754> "https://www.merriam-webster.com/dictionary/director"@en .
+                          <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act consisting of a Person person controlling a Television Show's artistic and dramatic aspects and visualizing the Screenplay (or Script) while guiding Crew Members and Actors in the fulfillment of that vision."@en ;
+                          <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/wiki/Film_director"@en .
 
 
 ###  http://www.semanticweb.org/glfow/ontologies/2025/2/tv-and-film/ActOfTelevisionProduction
